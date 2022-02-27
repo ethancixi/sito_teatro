@@ -402,6 +402,14 @@ section{
   padding: 25px 0px;
 }
 
+/*FOOTER*/
+
+footer{
+  background-color: #1d1a27;
+  height: 800px;
+  width: 100%;
+}
+
 /*colors
 #373ae2 blu
 #d7b5ff rosa
