@@ -16,15 +16,17 @@
     <body>
         <header>
             <div class="logo-container">
-                <a href="#"><img src="./img/logo_nosfondo.png" alt="logo" id="logo-nav"></a>
+                <a href="#" onclick="link()"><img src="./img/logo_nosfondo.png" alt="logo" id="logo-nav"></a>
             </div>
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#storia" class="nav-link">Storia</a></li>
-                    <li><a href="#commedie" class="nav-link">Commedie</a></li>
-                    <li><a href="#appuntamenti" class="nav-link">Appuntamenti</a></li>
-                    <li><a href="#contatti" class="nav-link">Contatti</a></li>
+                
+                <ul class="nav-links" id="nav">
+                    <li><a href="#storia" class="nav-link" onclick="link()">Storia</a></li>
+                    <li><a href="#commedie" class="nav-link" onclick="link()">Commedie</a></li>
+                    <li><a href="#appuntamenti" class="nav-link" onclick="link()">Appuntamenti</a></li>
+                    <li><a href="#contatti" class="nav-link" onclick="link()">Contatti</a></li>
                 </ul>
+                <button onclick="Menu()" class="menu" id="menu"><i class="fas fa-bars"></i></button>
             </nav>
             
         </header>
@@ -151,7 +153,7 @@
             </section>
         </div>
 
-        <div class="sbuttons">
+        <div class="sbuttons" id="buttons">
  
             <a href="#" target="_blank" class="sbutton whatsapp" tooltip="WhatsApp"><i class="fab fa-whatsapp"></i></a>  
              
@@ -159,10 +161,30 @@
            
             <a href="#" target="_blank" class="sbutton instagram" tooltip="Instagram"><i class="fab fa-instagram"></i></a>
            
-            <a target="_blank" class="sbutton mainsbutton" tooltip="Share"><i class="fas fa-share-alt"></i></a>
+            <a target="_blank" class="sbutton mainsbutton" tooltip="Share" onclick="social()" id="mainbutton"><i class="fas fa-share-alt"></i></a>
              
         </div>
 
-        <!--<script src="observer.js"></script>-->
+        <script>
+            var hamburger= document.getElementById("menu")
+            var nav= document.getElementById("nav")
+            var navlink = document.getElementsByClassName("nav-links")
+            var share = document.getElementById("buttons")
+
+            hamburger.addEventListener("click", menu);
+            function menu(){
+                nav.classList.toggle("responsive")
+            }
+            navlink.addEventListener("click", link)
+            function link(){
+                if(nav.classList=="nav-links responsive"){
+                    nav.classList.remove("responsive")
+                }
+            }
+            share.addEventListener("click", social)
+            function social (){
+                share.classList.toggle("active")
+            }
+        </script>
     </body>
 </html>

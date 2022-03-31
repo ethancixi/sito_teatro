@@ -42,12 +42,11 @@ header{
 nav{
     flex: 2;
 }
-.nav-links,.logo-container{
-    display: flex;
-}
 .nav-links{
     justify-content: space-around;
     list-style: none;
+    display: flex;
+    flex-wrap: wrap;
 }
 .nav-link{
     color: #848b85;
@@ -65,6 +64,82 @@ nav{
     -moz-box-shadow: 4px 4px 10px 0px #848b85;
     -o-box-shadow: 4px 4px 10px 0px #848b85;
     box-shadow: 4px 4px 10px 0px #848b85;
+}
+.menu{
+  background-color: transparent;
+  border: 0;
+  color: #848b85;
+  display: none;
+  position: fixed;
+  top: 5%;
+  right: 5%;
+  cursor: pointer;
+}
+.menu:active{
+  color: #1d1a27;
+}
+ 
+@media screen and (max-width: 768px) {
+  nav{
+    position: absolute;
+    top: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
+  .nav-link{
+    display: none;
+    opacity: 1;
+  }
+  .menu{
+    display: block;
+  }
+  .nav-link-open{
+    display: inline-block;
+  }
+  @media screen and (orientation:portrait) {
+    #title, #red, #yellow{
+      width: 300px;
+    }
+  }
+  .nav-links.responsive{
+    background: #fffaf0;
+  }
+  .nav-links.responsive li{
+    float: none;
+    display: block;
+    width: 100%;
+    justify-content: center;
+  }
+  .nav-links a {
+    display: block;
+    padding: 0;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    margin: 8px 0px;
+    color: #1d1a27;
+    opacity: 0;
+    transition: linear 0.2s;
+    transition-delay: 0.1s;
+    
+  }
+  .nav-links.responsive a {
+    display: block;
+    padding: 0;
+    border: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    margin: 8px 0px;
+    color: #1d1a27;
+    opacity: 1;
+    
+  }
 }
 
 /*LOGO*/
@@ -211,7 +286,7 @@ section{
     transition: all .1s ease-out;
     position: relative;
   }
-  .sbutton > i {
+  .sbutton i {
     font-size: 25px;
     line-height: 40px;
     transition: all .2s ease-in-out;
@@ -222,23 +297,34 @@ section{
   .sbutton:hover {
     box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
   }
+  
   .sbutton:not(:last-child) {
     width: 40px;
     height: 40px;
     margin: 20px auto 0;
     opacity: 0;
   }
+  
   .sbutton:not(:last-child) > i {
     font-size: 25px;
     line-height: 40px;
     transition: all .3s ease-in-out;
   }
+
   .sbuttons:hover .sbutton:not(:last-child) {
     opacity: 1;
     width: 40px;
     height: 40px;
     margin: 15px auto 0;
   }
+@media screen and (max-width: 768px){
+  .sbuttons.active .sbutton:not(:last-child) {
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+    margin: 15px auto 0;
+  }
+}
   .sbutton:nth-last-child(1) {
     -webkit-transition-delay: 30ms;
     transition-delay: 30ms;
